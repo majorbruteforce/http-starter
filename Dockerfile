@@ -2,11 +2,11 @@ FROM debian:buster-slim
 
 WORKDIR /app
 
-COPY http_server.c .
-
 RUN apt-get update && \
-    apt-get install -y build-essential && \
-    rm -rf /var/lib/apt/lists/*
+apt-get install -y build-essential && \
+rm -rf /var/lib/apt/lists/*
+
+COPY http_server.c .
 
 RUN gcc -o http_server http_server.c
 
